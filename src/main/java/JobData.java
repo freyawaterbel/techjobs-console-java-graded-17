@@ -72,14 +72,11 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
             String aValue = row.get(column);
-
             if (aValue.contains(value)) {
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
 
@@ -94,8 +91,23 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
         // TODO - implement this method
-        return null;
+        for (HashMap<String, String> jobEntry : allJobs) {
+            // another for loop to go through each value of current hashmap
+            // if statement to check that search term 'value' is included in that value
+            // another if statement inside to see if this hashmap is included in 'jobs' yet, if true return
+            // if not add current hashmap to jobs
+            jobEntry.forEach((jobKey, jobValue) ->
+                    if (jobs.contains(jobEntry)) {
+                        return;
+                    } else if (){
+
+                    }
+                    );
+        }
+        return jobs;
     }
 
     /**

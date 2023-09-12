@@ -35,17 +35,12 @@ public class TechJobs {
             if (actionChoice == null) {
                 break;
             } else if (actionChoice.equals("list")) {
-
                 String columnChoice = getUserSelection("List", columnChoices);
-
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
                 } else {
-
                     ArrayList<String> results = JobData.findAll(columnChoice);
-
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
-
                     // Print list of skills, employers, etc
                     for (String item : results) {
                         System.out.println(item);
@@ -56,11 +51,9 @@ public class TechJobs {
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
-
                 // What is their search term?
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
-
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
@@ -119,7 +112,17 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+    // for loop that iterates over the ArrayList called JobData, each entry being a HashMap
+        // for (each JobData entry)
+        // print the *****
+            // and then also for (key, value) print key  :  value
+        // then print ***** again and a newline
+        for (HashMap<String, String> jobEntry : someJobs) {
+            System.out.println("*****");
+            jobEntry.forEach((key, value) ->
+                    System.out.println(key + " : " + value));
+            System.out.println("*****" + '\n');
+        }
+//        System.out.println("printJobs is not implemented yet");
     }
 }
