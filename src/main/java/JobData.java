@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -99,13 +96,37 @@ public class JobData {
             // if statement to check that search term 'value' is included in that value
             // another if statement inside to see if this hashmap is included in 'jobs' yet, if true return
             // if not add current hashmap to jobs
-            jobEntry.forEach((jobKey, jobValue) ->
-                    if (jobs.contains(jobEntry)) {
-                        return;
-                    } else if (){
-
-                    }
-                    );
+            String searchValue = value.toLowerCase();
+            for (String entryValue : jobEntry.values()) {
+                String caseValue = entryValue.toLowerCase();
+                if (caseValue.contains(searchValue)) {
+                    if (!jobs.contains(jobEntry)) {
+                        jobs.add(jobEntry);
+                    } 
+                }
+            }
+//            for (HashMap.Entry<String, String> mapElement : jobEntry.entrySet()) {
+//                String entryKey = mapElement.getKey();
+//                String entryValue = mapElement.getValue();
+////                if (entryKey.contains(value)) {
+////                    if (!jobs.contains(jobEntry)) {
+////                        jobs.add(jobEntry);
+////                    }
+//                if (entryValue.contains(value)) {
+//                    if (!jobs.contains(jobEntry)) {
+//                        jobs.add(jobEntry);
+//                    }
+//                }
+//            }
+//            jobEntry.forEach((entryKey, entryValue) -> {
+//                if (!jobs.contains(jobEntry)) {
+//                    if (entryKey.contains(value)) {
+//                        jobs.add(jobEntry);
+//                    } else if (entryValue.contains(value)) {
+//                        jobs.add(jobEntry);
+//                    }
+//                }
+//            });
         }
         return jobs;
     }

@@ -123,6 +123,9 @@ public class TechJobs {
                     System.out.println(key + " : " + value));
             System.out.println("*****" + '\n');
         }
+        if (someJobs.isEmpty()) {
+            System.out.println("No Results");
+        }
 //        System.out.println("printJobs is not implemented yet");
     }
 }
